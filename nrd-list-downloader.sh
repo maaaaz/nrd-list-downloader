@@ -91,7 +91,7 @@ function download() {
     local i="$DAY_RANGE"
     while [ "$i" -gt "0" ]; do
         local DATE FILE URL FREE_URL_INFIX
-        DATE="$(date -u --date "$i days ago" '+%Y-%m-%d')"
+        DATE="$(date --date "$i days ago" '+%Y-%m-%d')"
         FILE="${DOWNLOAD_DIR}/${DATE}"
         if [ -s "$FILE" ] && [ "$(grep -vc '^$' "$FILE")" -ge "1" ] ; then
             echo.Cyan "$FILE existed with $(grep -vc '^$' "$FILE") domains, skip the download and decompress process ..."
